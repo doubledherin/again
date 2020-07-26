@@ -1,6 +1,8 @@
-const config = require('./config');
+const config = require('./config')
 
-const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix;
+const pathPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
+
+console.log("GATSBY PATH PREFIX: ", pathPrefix) // <-- logs '/again'
 
 module.exports = {
   siteMetadata: {
@@ -28,5 +30,5 @@ module.exports = {
       },
     },
   ],
-  pathPrefix
+  pathPrefix,
 }
