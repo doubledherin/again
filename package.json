@@ -32,9 +32,9 @@
     "clean": "gatsby clean",
     "reset": "rm -rf .cache/ public/ node_modules/ package-lock.json",
     "prep": "rm -rf .cache/ public/ node_modules/ && npm ci",
-    "develop": "DEBUG=gatsby* gatsby develop --prefix-paths --verbose",
-    "build": "DEBUG=gatsby* gatsby build --prefix-paths --verbose",
-    "serve": "DEBUG=gatsby* gatsby serve --prefix-paths --verbose",
+    "develop": "DEBUG=gatsby* gatsby develop --verbose",
+    "build": "DEBUG=gatsby* gatsby build --verbose",
+    "serve": "DEBUG=gatsby* gatsby serve --verbose",
     "test": "echo \"Error: no test specified -- https://gatsby.app/unit-testing/\" && exit 1",
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
