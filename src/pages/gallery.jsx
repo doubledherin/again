@@ -6,12 +6,9 @@ import GalleryItem from '../components/galleryItem'
 import { galleryPathPrefix } from '../constants'
 
 export default ({ data }) => {
-  console.log("PATH PREFIX ON window variable: ", window.__PATH_PREFIX__) // Yields undefined
   console.log("PATH PREFIX ON process.env: ", process.env.__PATH_PREFIX__) // Yields undefined
-  console.log("PATH PREFIX just all by itself: ", __PATH_PREFIX__) // Yields the empty string apparently
-  console.log("BASE PREFIX just all by itself", __BASE_PATH__)
-  if (__PATH_PREFIX__ === '') { console.log("BASE PATH IS EMPTY STRING")}
-  if (__BASE_PATH__ === '') { console.log("BASE PATH IS EMPTY STRING")}
+  console.log("PATH PREFIX IS EMPTY STRING: ", __PATH_PREFIX__ === '') // Yields true
+  console.log("BASE PATH IS EMPTY STRING: ", __BASE_PATH__ === '') // Yields true
   
   const { allFile: { nodes } } = data
 

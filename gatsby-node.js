@@ -14,7 +14,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
             use: loaders.null()
           }
         ]
-      }
+      },
     })
   }
 }
@@ -50,7 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allImageSharp.nodes.forEach(node => {
     if (node && node.fields) {
         createPage({
-        path: withPrefix(node.fields.slug),
+        path: withPrefix(node.fields.slug, ''),
         component: path.resolve(`./src/templates/galleryItemPage.js`),
         context: {
           // Data passed to context is available
