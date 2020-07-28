@@ -49,7 +49,8 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allImageSharp.nodes.forEach(node => {
     if (node && node.fields) {
-        const p = process.env.NODE_ENV === "development" ? node.fields.slug : `/again/${node.fields.slug}`
+        const env = process.env.NODE_ENV
+        const p = process.env.NODE_ENV === "development" ? node.fields.slug : `/again${node.fields.slug}`
         console.log("PATH: ", p)
         console.log("IF PRODUCTION PSTH", `/again${node.fields.slug}`)
         createPage({
