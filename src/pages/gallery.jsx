@@ -33,12 +33,12 @@ export default ({ data }) => {
             const { originalName } = node.childImageSharp.fluid
             const text = deriveText(originalName)
             const slug = deriveSlug(relativePath)
-            
+            const imgSrc = process.env.NODE_ENV === "development" ? node.childImageSharp.fluid.src : `/again${node.childImageSharp.fluid.src}`
             return (
               <GalleryItem 
                 key={node.id} 
                 fluid={node.childImageSharp.fluid} 
-                imageSrc={node.childImageSharp.fluid.src} 
+                imageSrc={imgSrc} 
                 alt={`spirograph based on ${text}`} 
                 text={text} 
                 width={2} 
