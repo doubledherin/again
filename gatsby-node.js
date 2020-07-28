@@ -35,6 +35,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
+  global.__BASE_PATH__ = ''
+  global.__PATH_PREFIX__ = '/again'
   const { createPage } = actions
   const result = await graphql(`
     query {
