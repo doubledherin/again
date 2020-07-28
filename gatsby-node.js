@@ -49,12 +49,8 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allImageSharp.nodes.forEach(node => {
     if (node && node.fields) {
-        const env = process.env.NODE_ENV
-        const p = process.env.NODE_ENV === "development" ? node.fields.slug : `/again${node.fields.slug}`
-        console.log("PATH: ", p)
-        console.log("IF PRODUCTION PSTH", `/again${node.fields.slug}`)
         createPage({
-        path: p,
+        path: node.fields.slug,
         component: path.resolve(`./src/templates/galleryItemPage.js`),
         context: {
           // Data passed to context is available
