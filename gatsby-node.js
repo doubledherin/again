@@ -35,8 +35,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  global.__BASE_PATH__ = null
-  global.__PATH_PREFIX__ = '/again'
   const { createPage } = actions
   const result = await graphql(`
     query {
@@ -52,16 +50,14 @@ exports.createPages = async ({ graphql, actions }) => {
   result.data.allImageSharp.nodes.forEach(node => {
     if (node && node.fields) {
         createPage({
-        path: withPrefix(node.fields.slug),
+        path: process.env.NODE_ENV === "development" ? node.fields.slug : `/again${node.fields.slug}`,
         component: path.resolve(`./src/templates/galleryItemPage.js`),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.
-          slug: withPrefix(node.fields.slug),
+          slug: process.env.NODE_ENV === "development" ? node.fields.slug : `/again${node.fields.slug}`,
         },
       })
     }
-    global.__BASE_PATH__ = ''
-    global.__PATH_PREFIX__ = '/again'
   })
 }
